@@ -1,0 +1,10 @@
+Spring Day 5
+
+Spring Boot 
+
+Spring Boot is a framework above the spring layer
+Spring Boot Components: 
+	1. AutoConfiguration
+	2. Spring Boot Starter
+ 		Example: spring-boot-starter-web, spring-boot-starter-jdbc etc
+	3. CLI

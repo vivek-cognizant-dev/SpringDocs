@@ -1,0 +1,72 @@
+spring Day 2
+
+Traingle.java
+
+package com.cts;
+
+import java.util.HashMap;
+
+
+public class Triangle {
+	String name;
+	Point point;
+	HashMap<Integer, Point> hm = new HashMap<Integer, Point>();
+	
+	public Triangle() {
+		super();
+	}
+
+	public Triangle(String name, Point point, HashMap<Integer, Point> hm) {
+		super();
+		this.name = name;
+		this.point = point;
+		this.hm = hm;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Point getPoint() {
+		return point;
+	}
+
+	public void setPoint(Point point) {
+		this.point = point;
+	}
+
+	public HashMap<Integer, Point> getHm() {
+		return hm;
+	}
+
+	public void setHm(HashMap<Integer, Point> hm) {
+		this.hm = hm;
+	}
+
+	@Override
+	public String toString() {
+		return "Triangle [name=" + name + ", point=" + point + ", hm=" + hm + "]";
+	}
+}
+
+
+Spring.xml
+
+<bean id="t1" class="com.cts.Triangle">
+		<property name="name" value="right"></property>
+		<property name="point" ref="p1"></property>
+		<property name="hm">
+			<map>
+				<entry key="1" value-ref="p1"></entry>
+				<entry key="2" value-ref="p2"></entry>
+				<entry key="3" value-ref="p3"></entry>
+			</map>
+		</property>
+	</bean>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------

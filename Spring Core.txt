@@ -1,0 +1,147 @@
+Spring Core
+
+Module:-
+1. IOC
+2. Spring AOP
+3. Spring MVC
+4. Spring JDBC
+5. Spring REST Web Services
+
+1. Spring is a light weight framework and imp feature is IOC
+
+2. IOC - how to achieve
+	1. BeanFactory --- Lazy Loading
+	2. ApplicationContext<Interface> -- Eager Loading
+
+	they represent a container in spring
+3. Spring Beans - Java Object manage by spring container/framework is called beans
+
+4. Auto wiring - Spring will look for the dependencies and get auto injected (imp)
+
+5. There are 3 different ways of creating a beans
+
+	1. XML based Configuration
+	2. Annotation based Configuration
+	3. Java Based Configuration
+
+6. Maven Tool - Project Based Tool - it used XML language - it work in repositories
+	gradle used groovy lang
+
+	it works on three repo.
+		1. Local repo
+		2. Central repo.
+		3. Remote
+	local is the default repo, its first check on local repo for JAR files (imp)
+
+7. pom.xml - project object model used to add dependencies in the project
+
+8. Two types of beans - contructor based and setter based
+
+9. Three ways to get bean by container - 1 type  2 id  3 by using both
+
+	Triangle t = new Triangle();
+
+10. creating beans using 
+	Trianngle t = (Triangle) cnt.getBean("t1");
+	
+and XML code:-
+<bean id="p2" class="com.cts.Point">
+	<property name="x" value="50"></property>
+	<property name="y" value="60"></property>
+</bean>
+
+11. init-method - this decides which method we are going to define as init 
+	destroy method - decides which method is destroy method
+
+	<bean id="p1" class="com.cts.Point" init-method="init" destroy-method="destroy">
+	<property name="x" value="10"></property>
+	<property name="y" value="20"></property>
+	</bean>
+12. LifeCycle of Spring Bean
+	1. Initially spring framework will read the instructions from the xml file and then instantiate the bean.
+	2. It calls the constructor to perform some action ate the time creating the object.
+	3. It initialize properties of all the beans.
+	4. Then it will call the post initialization method.
+	5. Now the bean is ready to use.
+	6. Beans gets destroyed and destroy method will be called.
+
+	to destroy we use - cnt.registerShutdownHook();
+
+13. Autowiring  : Autowiring is a feature where spring automatically looks for the dependency and inject the object in the current class
+	three types of autowiring
+	1. By name 
+		<bean id="t1" class="com.cts.Triangle" autowire="byName">
+			<property name="name" value="obtuse"></property>
+		</bean>
+	2. By Type	
+		<bean id="t1" class="com.cts.Triangle" autowire="byType">
+			<property name="name" value="obtuse"></property>
+		</bean>
+	3. By Constructor	
+		<bean id="t1" class="com.cts.Triangle" autowire="constructor">
+			<constructor-arg index="0" value="obtuse"></constructor-arg>
+		</bean>
+
+14. @Qualifier("p3") plced under @Autowired to inject this bean in the class
+
+15. @PostConstructor :- marks a method that should run after a class instance has been created and all dependencies have been injected by a dependency 	injection container (init method)
+16. @PreDestroy :- use to destroy at last of the program
+
+17. Get data from db -   <context:property-placeholder location="classpath:db.properties" />
+
+18. @Component - is used to define bean of the class
+
+19. @Value("#{}") - is used to give values to the variables in the class
+			@Component
+			public class Customer {
+				@Value("#{101}")
+				int cusId;
+				@Value("#{'Batman'}")
+				String cusName;
+			}
+
+			second type - to get the value from the db
+				@Component
+				public class Login {	
+					@Value("${uname}")
+					String username;
+					@Value("${pwd}")
+					String password;
+				}	
+
+20. @Configuration  - 
+
+21. @ComponentScan("com.entity") - 
+
+22. AnnotationConfigApplicationContext cnt = new AnnotationConfigApplicationContext(MyConfig.class); 
+
+23. @Bean - 
+
+24. @PropertySource("db.properties") - feature used to load external property files into the Spring Environment
+
+25. @Repository - 
+
+26. @Service - 
+
+27. Differnt type is creating beans using annotation :-
+	@Bean
+	@Repository
+	@Service
+	@Controller
+	@Component
+
+
+28. Structured Layer Architecture
+
+		1. Entity Layer-  object 
+		2. Repository Layer - Database files
+		3. Service Layer - 
+		4. Controller Layer- to process the request coming from client
+
+29. Exception should be handle at service level no Repository level
+
+30. @Aspect - 
+
+31. @EnableAspectJAutoProxy - It will run advices automatically
+
+32. SpringBoot : Spring Boot provides significant advantages over the traditional Spring framework by focusing on simplification, faster development, and easier deployment through features like auto-configuration and embedded servers

@@ -1,0 +1,138 @@
+Spring Day 3
+
+Main
+
+//Annotation based bean creation
+
+package com.cts;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.config.MyConfig;
+import com.entity.Customer;
+
+public class Test3 {
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext cnt = new AnnotationConfigApplicationContext(MyConfig.class);
+		Customer c = (Customer) cnt.getBean("c1");
+		System.out.println(c);
+		cnt.close();
+	}
+}
+
+Customer.java
+
+package com.entity;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component("c1")
+public class Customer {
+	
+	@Value("#{101}")
+	int cusId;
+	@Value("#{'Batman'}")
+	String cusName;
+	
+	public Customer() {
+		super();
+	}
+
+	public Customer(int cusId, String cusName) {
+		super();
+		this.cusId = cusId;
+		this.cusName = cusName;
+	}
+
+	public int getCusId() {
+		return cusId;
+	}
+
+	public void setCusId(int cusId) {
+		this.cusId = cusId;
+	}
+
+	public String getCusName() {
+		return cusName;
+	}
+
+	public void setCusName(String cusName) {
+		this.cusName = cusName;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [cusId=" + cusId + ", cusName=" + cusName + "]";
+	}
+	
+	
+}
+
+MyConfig.java
+
+package com.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan("com.entity")
+public class MyConfig {
+	
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Java Based Configuration
+
+MyConfig.java
+
+package com.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import com.entity.Employee;
+
+@Configuration
+@ComponentScan("com.entity")
+
+public class MyConfig {
+	
+	@Bean("e1")
+	public Employee getEmployee() {
+		return new Employee(1, "Vivek", 5000);
+	}
+	
+	@Bean("e2")
+	public Employee getEmployee1() {
+		return new Employee(1, "Kumar", 6000);
+	}
+}
+
+
+Main.java
+
+package com.cts;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.config.MyConfig;
+import com.entity.Customer;
+import com.entity.Employee;
+
+public class Test3 {
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext cnt = new AnnotationConfigApplicationContext(MyConfig.class);
+
+		
+		Employee e1 = (Employee) cnt.getBean("e1");
+		System.out.println(e1);
+		Employee e2 = (Employee) cnt.getBean("e2");
+		System.out.println(e2);
+		cnt.close();
+	}
+}
+

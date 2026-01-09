@@ -1,0 +1,44 @@
+Spring Day 4
+
+AOP: Aspect Oriented Programming
+
+AOP is basically cross cutting functionalities. 
+
+AOP Terminology:
+1. Concern: The functionality which need to be implemented
+2. Cross-cutting: The functionality which need to be implemented through out the application
+3. JoinPoint: It is an Area of execution where advice need to run
+4. Advice: Its a course of action which need to be perform on joint point
+	There are following types of advice: 
+		1. Before - before the execution area
+		2. After
+		3. Around - In one advice only we want to run before and after advice
+		4. AfterReturning - After the method is run successfully
+		5. AfterThrowing - after the exception is thrown
+5. PointCut - A set of JoinPoints
+
+
+
+IMPORTANT
+
+@Before("execution(public String *.*.*.get*())")   //this is called joinPoint
+public void beforeAdvice() {
+	System.out.println("Circle Before Advice");
+}
+
+@Before:
+This annotation tells Spring AOP to run the advice before the matched method executes.
+
+Pointcut Expression (execution(...)):
+
+public String → Matches methods that return a String and are public.
+
+*.*.*.get*() → Matches any method starting with get in any class, in any package (3 levels deep).
+
+The first * → any package.
+
+The second * → any class.
+
+The third * → any method name starting with get.
+
+() → no arguments.

@@ -1,0 +1,186 @@
+spring Day 1 - creating beans using XML 
+
+Point.java
+
+package com.cts;
+
+public class Point {
+	int x;
+	int y;
+	
+	public Point() {
+		super();
+	}
+
+	public Point(int x, int y) {
+		super();
+		this.x = x;
+		this.y = y;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	@Override
+	public String toString() {
+		return "Point [x=" + x + ", y=" + y + "]";
+	}
+	
+}
+
+Test.java
+
+package com.cts;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ApplicationContext cnt = new ClassPathXmlApplicationContext("spring.xml");
+		Point p1 = (Point) cnt.getBean("p1");
+		System.out.println(p1);
+		
+		Point p2 = (Point) cnt.getBean("p2");
+		System.out.println(p2);
+		
+		Point p3 = cnt.getBean("p3", Point.class);
+		System.out.println(p3);
+		
+//		Triangle t1 = cnt.getBean("t1", Triangle.class);
+//		System.out.println(t1);
+//		
+//		Triangle t2 = cnt.getBean("t2", Triangle.class);
+//		System.out.println(t2);
+		
+		Triangle t = (Triangle) cnt.getBean("t1");
+		System.out.println(t);
+	}
+
+}
+
+Triangle.java
+
+package com.cts;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Triangle {
+	String name;
+	Point point;
+	List<String> al = new ArrayList<String>();
+	
+	public Triangle() {
+		super();
+	}
+
+	public Triangle(String name, Point point, List<String> al) {
+		super();
+		this.name = name;
+		this.point = point;
+		this.al = al;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Point getPoint() {
+		return point;
+	}
+
+	public void setPoint(Point point) {
+		this.point = point;
+	}
+
+	public List<String> getAl() {
+		return al;
+	}
+
+	public void setAl(List<String> al) {
+		this.al = al;
+	}
+
+	@Override
+	public String toString() {
+		return "Triangle [name=" + name + ", point=" + point + ", al=" + al + "]";
+	}	
+}
+
+
+spring.xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+<bean id="p1" class="com.cts.Point" >
+	<property name="x" value="10"></property>
+	<property name="y" value="20"></property>
+</bean>
+	
+<bean id="p2" class="com.cts.Point">
+	<property name="x" value="50"></property>
+	<property name="y" value="60"></property>
+</bean>
+
+<bean id="p3" class="com.cts.Point">
+	<constructor-arg index="0" value="100"></constructor-arg>
+	<constructor-arg index="1" value="200"></constructor-arg>
+</bean>
+	
+<!--want to inject the property of p2 in triangle-->
+<!--
+<bean id="t1" class="com.cts.Triangle">
+	<property name="name" value="acute"></property>
+	<property name="point" ref="p2"></property>
+</bean>
+
+<bean id="t2" class="com.cts.Triangle">
+	<constructor-arg index="0" value="scalene"></constructor-arg>
+	<constructor-arg index="1" ref="p3"></constructor-arg>
+</bean>
+	  -->
+	  
+	<bean id="t1" class="com.cts.Triangle">
+		<property name="name" value="right"></property>
+		<property name="point" ref="p1"></property>
+		<property name="al">
+			<list>
+				<value>Acute</value>
+				<value>Obtuse</value>
+				<value>Right</value>
+				<value>Scalene</value>
+			</list>
+		</property>
+	</bean>
+
+ </beans>
