@@ -145,3 +145,9 @@ and XML code:-
 31. @EnableAspectJAutoProxy - It will run advices automatically
 
 32. SpringBoot : Spring Boot provides significant advantages over the traditional Spring framework by focusing on simplification, faster development, and easier deployment through features like auto-configuration and embedded servers
+
+33. @SpringBootApplication : works in 3 ways
+
+34. Spring MVC - Model View Controller
+
+35. @RequestMapping :- 

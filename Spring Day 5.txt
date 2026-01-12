@@ -8,3 +8,22 @@ Spring Boot Components:
 	2. Spring Boot Starter
  		Example: spring-boot-starter-web, spring-boot-starter-jdbc etc
 	3. CLI
+	4. Actuator: It basically monitors the flow of the Spring application
+	5. It has inbuilt Web Server(Tomcat)
+	6. There is no XML Configuration
+
+@SpringBootApplication : internally works in a 3 ways
+	It works as a
+	1. @Configuartion
+	2. @ComponentScan
+	3. @EnableAutoConfiguration : look for all the JAR files in POM.xml and do auto configure
+
+implements CommandLineRunner : Any task which I need to run before main method we put in CommandLineRunner
+	It runs before Main method
+
+implements ApplicationRunner : ApplicationRunner is another interface in Spring Boot that serves a similar purpose to CommandLineRunner, but it provides a more structured way to access and parse command-line arguments
+
+Spring MVC : 	Model: Encapsulates the application's data and business logic
+		View :  Responsible for rendering the user interface, typically generating HTML output
+		Controller : handle request coming from client
+webApp Folder - is the Tomcat Path 
