@@ -1,0 +1,9 @@
+Spring Day 10
+JPA Mapping
+
+	1. One-to-One Mapping(1-1)
+	2. One-to-Many Mapping(1-N)
+	3. Many-to-One Mapping (N-1)
+	4. Many-to-Many Mapping(N-N)
+
+2. Problem of granuality

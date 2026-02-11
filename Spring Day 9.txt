@@ -1,0 +1,13 @@
+Spring Day 9
+
+Web Services:-
+
+two ways to create Web Services
+	1. SOAP - (Simple Object Access Protocol) done using XML
+	2. REST - {Representational State Transfer} done using URI - Uniform Representational Identity 
+
+GET
+POST
+PUT
+DELETE
+PATCH

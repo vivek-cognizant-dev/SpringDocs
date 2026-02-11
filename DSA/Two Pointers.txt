@@ -1,0 +1,14 @@
+Two Pointers
+
+This is the flow chart (start from the first)
+
+Applicable in Arrays/LinkedList
+1. If the array is sorted/ Or we can sort
+2. If given we have to merge the array
+3. If given we have to remove the duplicates
+4. If Given We have to rearrange the array
+
+for linkedlist
+5. Detect Cycle
+
+6. If we have to find pair, Triplet and Quadruples

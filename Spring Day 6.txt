@@ -1,0 +1,30 @@
+Spring Day 6
+
+@ModelAttribute is use to fetch entire Form data (imp)
+	
+//Previous
+	@RequestMapping("/reg")
+	public String regPage(@RequestParam("foodId") int fid, @RequestParam("foodName") String fName, @RequestParam("foodRate") int fRate, Model model) {
+		model.addAttribute("foodId", fid);
+		model.addAttribute("foodName", fName);
+		model.addAttribute("foodRate", fRate);
+		return "Registration";
+	}
+
+//After
+	@RequestMapping("/reg")
+	public String regPage(@ModelAttribute("ma") Food f, Model model) {
+//		model.addAttribute("foodId", fid);
+//		model.addAttribute("foodName", fName);
+//		model.addAttribute("foodRate", fRate);
+		System.out.println(f.getFoodId());
+		System.out.println(f.getFoodName());
+		System.out.println(f.getFoodRate());
+		return "Registration";
+	}
+
+It has Two Rules :-
+	1. Used to fetch entire form data
+	2. Data can be used to display any JSP page
+
+when we want to get data in any of the page

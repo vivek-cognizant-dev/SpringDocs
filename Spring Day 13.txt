@@ -1,0 +1,9 @@
+Spring Day 13
+
+Eureka Server - to bind Microservices in one place
+Eureka Server acts as a service registry that holds information about all available microservice instances. It enables automatic registration of services and simplifies inter-service communication without hardcoding IP addresses or hostnames.
+
+Three ways of consuming
+1. PostMan
+2. Rest Template
+3. FiegnClient

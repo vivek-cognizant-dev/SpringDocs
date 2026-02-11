@@ -28,7 +28,7 @@ Module:-
 	gradle used groovy lang
 
 	it works on three repo.
-		1. Local repo
+		1. Local repo (m2)
 		2. Central repo.
 		3. Remote
 	local is the default repo, its first check on local repo for JAR files (imp)
@@ -151,3 +151,59 @@ and XML code:-
 34. Spring MVC - Model View Controller
 
 35. @RequestMapping :- 
+
+36. @RequestParam:-
+
+37. @ModelAttribute :-
+
+38. @PathVariable
+
+39. @Size() :-
+
+40. @Valid :- 
+
+41. @RestController - it will produced a data
+
+42. @Entity
+
+43. @Table
+
+44. @Id
+
+45. @Column
+
+46. @Query - use to populate the SQL queries
+
+47. JPQL query - IMP
+
+48. @Param
+
+49. @RestController - create a data 
+
+50. @RequestBody
+
+51. @OnetoOne
+
+52. @EnableEurekaServer
+
+53. @CircuitBreaker
+
+54. @EnableConfigServer
+
+55. @Getter - use in Lombok
+
+56. @Setter / @NoArsConstructor / @AllArgsConstructor / @ToString
+
+57. @EqualsAndHashcode
+
+58. @Slf4j - meant to create loggers
+
+59. @SpringBootTest
+
+60. @Test
+
+61. @ParameterisedTest - to pass parameters to test cases
+
+62. @Order(1) - to order during testing case method
+
+63. @Mock - 

@@ -1,0 +1,17 @@
+Spring Day 8
+
+Spring Data JPA(Java Persistence API)
+
+Hibernate JPA is basically an ORM(Object Relational Mapping) tool
+
+public class Employee{                     emp 
+	int empId;
+	String empName;                    empId         empName          salary
+	int salary;
+}
+
+DAO(Repository) - Data Access Object
+
+CrudeRepository<Interface> 
+	PagingAndSortingRepository<Interface>
+		JPARepository<Interface>

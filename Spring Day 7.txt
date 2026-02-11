@@ -1,0 +1,31 @@
+Spring Day 7
+
+ApplicationContext
+
+1. XML
+
+2. Annotation
+@Configuration @Controller @Service @ Repository
+
+3. Java  (Best way to create bean)
+@Bean
+
+Design Factory Problem
+
+1. Singleton - only one object will be created and will be referred (It is the default scope of Spring)
+2. Prototype
+
+ViewResolver -- who basically looks for JSP pages
+
+SpringBoot 
+	1Autoconfig
+	2 Spring Boot starter
+	3. CLI
+	4. Actutor
+	5. Inbuild tomcat server
+
+Maven Lifecycle
+	1. Compile
+	2. test
+	3. package -- will create jar file int he current project path
+	4. install -- will also create jar file

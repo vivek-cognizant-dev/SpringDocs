@@ -1,0 +1,28 @@
+Spring Day 14
+
+Load Balancing
+Load Balancing is a feature to handle incoming traffic(user request) and make sure to distribute among n number of instances.
+
+Resilience - It is a feature in spring cloud where if a microservice which gets consumed fails because of some reasons like exceptions, database failure or wrong url etc. then you have fallout method.
+
+Gateway - It is a feature in cloud where all the microservices register in the eureka server must be routed through gateway so that all the microservices can have a common port instead of referring n numbers of port.
+
+
+Defining the routes in the services
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: MS1
+          uri: lb://MS1
+          predicates:
+            - Path=/producer/viewpay
+ 
+        - id: MS2
+          uri: lb://MS2
+          predicates:
+            - Path=/consumer/getpay

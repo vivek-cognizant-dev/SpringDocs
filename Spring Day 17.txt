@@ -1,0 +1,25 @@
+		Spring Day 17 
+Test - JUnit
+
+assertEquals()
+assertTrue() - return the Boolean value
+assertFalse() - return the Boolean value
+assertNull()
+assetThrows
+
+
+for mockito
+<dependency>
+<groupId>org.mockito</groupId>
+<artifactId>mockito-core</artifactId>
+<scope>test</scope>
+</dependency>
+ 
+<dependency>
+<groupId>org.mockito</groupId>
+<artifactId>mockito-junit-jupiter</artifactId>
+ 
+    <scope>test</scope>
+</dependency>
+
+

@@ -1,0 +1,26 @@
+Spring Day 16
+
+Lombok
+Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java. Never write another getter or equals method again, with one annotation your class has a fully featured builder, automate your logging variables, and much more.
+
+
+Loggers
+logging.level.com.cts=debug
+ 
+logging.level.com.cts.service=info
+ 
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n
+ 
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+ 
+logging.file.name=logs/app.log
+ 
+
+Logging Levels:
+	1. Trace - where we provide all the information
+	2. Debug - all the debugging information
+	3. Info - a specific information to be displayed
+	4. Warn - If any warning is need to be shown
+	5. Error - If any error is need to be shown
+
+@Sl4j - create loggers

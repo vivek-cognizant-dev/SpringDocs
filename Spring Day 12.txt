@@ -1,0 +1,39 @@
+Spring Day 12
+
+
+Monolithic
+	-Admin
+	-Buyers
+	-Sellers
+
+Microservices - are nothing but small services which are deployed with its individual database in a different servers.
+
+Scaling - Its is a feature where number of instances are increased or decreased of a given application
+	
+Monolithic							Microservices
+- Single language						- Multiple Language
+- Single Database						- Every service will have its own Database
+- Fully Tested							- Only Service level tested
+- Entire Application is deployed				- Only service level gets deployed
+- Scaling is done for the entire application			- Scaling is done on specific service
+-entire application need to be monitor				- Individually we need to monitor
+								- If One microservice fails, it will not effect entire application
+
+As microservices are distributed by nature so handling hardware and software is a big challenge. To maintain this we have got Spring Cloud enabled
+	application.
+
+
+It is the responsibility of spring cloud native application to maintain the hardware and software of the microservices
+1. Elasticity - To increase or decrease the instances of the application
+2. Resilence - means if one microservices falls down you must have some alternate features
+3. Security - 
+4. Load Balancing - is a feature to control the load given to the application and making sure that it is equally distributed among multiple instances.
+
+
+com.cts.ssm
+com.cts.ssm.entity
+com.cts.ssm.dto
+com.cts.ssm.repository
+com.cts.ssm.service
+com.cts.ssm.controller
+com.cts.ssm.exception
